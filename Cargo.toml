@@ -1,6 +1,6 @@
 [package]
 name = "bevy_iced"
-version = "0.4.0"
+version = "0.5.0"
 edition = "2021"
 description = "Iced integration for Bevy"
 authors = ["tasgon <me@tas.sh>"]
@@ -13,21 +13,25 @@ documentation = "https://docs.rs/bevy_iced"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bevy_app = "0.11"
-bevy_derive = "0.11"
-bevy_ecs = "0.11"
-bevy_input = "0.11"
-bevy_math = "0.11"
-bevy_render = "0.11"
-bevy_utils = "0.11"
-bevy_window = "0.11"
+bevy_app = "0.12"
+bevy_derive = "0.12"
+bevy_ecs = "0.12"
+bevy_input = "0.12"
+bevy_math = "0.12"
+bevy_render = "0.12"
+bevy_utils = "0.12"
+bevy_window = "0.12"
 
-iced_core = "0.10"
-iced_runtime = "0.1"
-iced_wgpu = "0.11"
-iced_widget = "0.1"
-iced_renderer = { version = "0.1", features = ["wgpu"] }
+iced_core = { git = "https://github.com/iced-rs/iced.git", rev = "817f72868746461891ca4e74473c555f3b5c5703" }
+iced_runtime = { git = "https://github.com/iced-rs/iced.git", rev = "817f72868746461891ca4e74473c555f3b5c5703" }
+iced_wgpu = { git = "https://github.com/iced-rs/iced.git", rev = "817f72868746461891ca4e74473c555f3b5c5703" }
+iced_widget = { git = "https://github.com/iced-rs/iced.git", rev = "817f72868746461891ca4e74473c555f3b5c5703" }
+iced_renderer = { git = "https://github.com/iced-rs/iced.git", rev = "817f72868746461891ca4e74473c555f3b5c5703", features = [
+    "wgpu",
+] }
+
+wgpu = "=0.17.1"
 
 [dev-dependencies]
-bevy = "0.11"
+bevy = "0.12"
 rand = "0.8"

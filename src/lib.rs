@@ -47,6 +47,7 @@ use bevy_render::{ExtractSchedule, RenderApp};
 use bevy_utils::HashMap;
 use bevy_window::{PrimaryWindow, Window};
 use iced_core::mouse::Cursor;
+use iced_core::{Font, Pixels};
 use iced_runtime::user_interface::UserInterface;
 use iced_widget::graphics::backend::Text;
 use iced_widget::graphics::Viewport;
@@ -127,7 +128,11 @@ impl IcedProps {
         }
 
         Self {
-            renderer: Renderer::Wgpu(iced_wgpu::Renderer::new(backend)),
+            renderer: Renderer::Wgpu(iced_wgpu::Renderer::new(
+                backend,
+                Font::DEFAULT,
+                Pixels::from(16.0),
+            )),
             debug: iced_runtime::Debug::new(),
             clipboard: iced_core::clipboard::Null,
         }

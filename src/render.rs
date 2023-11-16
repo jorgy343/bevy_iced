@@ -89,7 +89,9 @@ impl Node for IcedNode {
         let IcedProps {
             renderer, debug, ..
         } = &mut *world.resource::<IcedResource>().lock().unwrap();
-        let crate::Renderer::Wgpu(renderer) = renderer else { return Ok(()) };
+        let crate::Renderer::Wgpu(renderer) = renderer else {
+            return Ok(());
+        };
         let render_device = world.resource::<RenderDevice>().wgpu_device();
         let render_queue = world.resource::<RenderQueue>();
         let viewport = world.resource::<ViewportResource>();
@@ -110,6 +112,7 @@ impl Node for IcedNode {
                 render_queue,
                 render_context.command_encoder(),
                 None,
+                iced_wgpu::wgpu::TextureFormat::Rgba8Unorm,
                 view,
                 primitives,
                 viewport,
